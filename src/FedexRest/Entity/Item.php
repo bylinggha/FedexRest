@@ -5,6 +5,7 @@ namespace FedexRest\Entity;
 class Item
 {
     public string $itemDescription = '';
+    public array $customerReferences = [];
     public ?Weight $weight;
     public ?Dimensions $dimensions;
 
@@ -15,6 +16,16 @@ class Item
     public function setItemDescription(string $itemDescription): Item
     {
         $this->itemDescription = $itemDescription;
+        return $this;
+    }
+
+    /**
+     * @param  string  $itemDescription
+     * @return Item
+     */
+    public function setCustomerRefereences(Array $customerReferences): Item
+    {
+        $this->customerReferences = $customerReferences;
         return $this;
     }
 
@@ -42,6 +53,8 @@ class Item
     {
         $data = [
             'itemDescription' => $this->itemDescription,
+            'customerReferences' => $this->customerReferences,
+
         ];
         if (!empty($this->weight)) {
             $data['weight'] = $this->weight->prepare();

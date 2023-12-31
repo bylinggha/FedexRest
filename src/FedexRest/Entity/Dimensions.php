@@ -7,36 +7,36 @@ namespace FedexRest\Entity;
  */
 class Dimensions
 {
-    public ?float $width;
-    public ?float $height;
-    public ?float $length;
+    public ?int $width;
+    public ?int $height;
+    public ?int $length;
     public string $units = '';
 
     /**
-     * @param  float  $length
+     * @param  int  $length
      * @return $this
      */
-    public function setLength(float $length): Dimensions
+    public function setLength(int $length): Dimensions
     {
         $this->length = $length;
         return $this;
     }
 
     /**
-     * @param  float  $width
+     * @param  int  $width
      * @return $this
      */
-    public function setWidth(float $width): Dimensions
+    public function setWidth(int $width): Dimensions
     {
         $this->width = $width;
         return $this;
     }
 
     /**
-     * @param  float  $height
+     * @param  int  $height
      * @return $this
      */
-    public function setHeight(float $height): Dimensions
+    public function setHeight(int $height): Dimensions
     {
         $this->height = $height;
         return $this;

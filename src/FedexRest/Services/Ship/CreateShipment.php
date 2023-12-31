@@ -27,6 +27,7 @@ class CreateShipment extends AbstractRequest
     protected string $pickupType = '';
     protected int $accountNumber;
     protected array $lineItems = [];
+    protected array $customsClearanceDetail = [];
     protected string $labelResponseOptions = '';
     protected ShipmentSpecialServices $shipmentSpecialServices;
     protected ShippingChargesPayment $shippingChargesPayment;
@@ -72,6 +73,10 @@ class CreateShipment extends AbstractRequest
      */
     public function setRecipients(Person ...$recipients): CreateShipment {
         $this->recipients = $recipients;
+        return $this;
+    }
+    public function setCustomsClearanceDetails( $array ) {
+        $this->customsClearanceDetail = $array;
         return $this;
     }
 
@@ -472,6 +477,7 @@ class CreateShipment extends AbstractRequest
             'packagingType' => $this->packagingType,
             'pickupType' => $this->pickupType,
             'blockInsightVisibility' => $this->blockInsightVisibility,
+            'customsClearanceDetail' =>  $this->customsClearanceDetail,
             'requestedPackageLineItems' => $line_items,
         ];
         if (!empty($this->shippingChargesPayment)) {
